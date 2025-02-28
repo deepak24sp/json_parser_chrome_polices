@@ -1,299 +1,389 @@
 export const jsonString = `{
-		"name": "customers/C022n8w1u/policySchemas/chrome.devices.SignInKeyboard",
-		"policyDescription": "Login screen keyboard.",
+		"name": "customers/C022n8w1u/policySchemas/chrome.devices.managedguest.IdleSettingsExtended",
+		"policyDescription": "Idle settings.",
 		"definition": {
 			"messageType": [
 				{
-					"name": "SignInKeyboard",
+					"name": "IdleSettingsExtended",
 					"field": [
 						{
-							"name": "loginScreenKeyboardSelections",
+							"name": "lidCloseAction",
 							"number": 1,
 							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_ENUM",
+							"typeName": "LidCloseActionEnum"
+						},
+						{
+							"name": "idleDelayAc",
+							"number": 2,
+							"label": "LABEL_OPTIONAL",
 							"type": "TYPE_MESSAGE",
-							"typeName": "SignInKeyboards"
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "idleWarningDelayAc",
+							"number": 3,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_MESSAGE",
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "idleActionAc",
+							"number": 4,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_ENUM",
+							"typeName": "IdleActionAcEnum"
+						},
+						{
+							"name": "screenDimDelayAc",
+							"number": 5,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_MESSAGE",
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "screenOffDelayAc",
+							"number": 6,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_MESSAGE",
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "screenLockDelayAc",
+							"number": 7,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_MESSAGE",
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "idleDelayBattery",
+							"number": 8,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_MESSAGE",
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "idleWarningDelayBattery",
+							"number": 9,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_MESSAGE",
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "idleActionBattery",
+							"number": 10,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_ENUM",
+							"typeName": "IdleActionBatteryEnum"
+						},
+						{
+							"name": "screenDimDelayBattery",
+							"number": 11,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_MESSAGE",
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "screenOffDelayBattery",
+							"number": 12,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_MESSAGE",
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "screenLockDelayBattery",
+							"number": 13,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_MESSAGE",
+							"typeName": "NullableDuration"
+						},
+						{
+							"name": "lockOnSleepOrLidClose",
+							"number": 14,
+							"label": "LABEL_OPTIONAL",
+							"type": "TYPE_ENUM",
+							"typeName": "NullableBoolean"
 						}
 					]
 				},
 				{
-					"name": "SignInKeyboards",
+					"name": "NullableDuration",
 					"field": [
 						{
-							"name": "selections",
+							"name": "duration",
 							"number": 1,
 							"label": "LABEL_OPTIONAL",
-							"type": "TYPE_MESSAGE",
-							"typeName": "KeyboardSelections"
+							"type": "TYPE_INT64"
+						}
+					]
+				}
+			],
+			"enumType": [
+				{
+					"name": "LidCloseActionEnum",
+					"value": [
+						{ "name": "LID_CLOSE_ACTION_ENUM_SLEEP", "number": 1 },
+						{ "name": "LID_CLOSE_ACTION_ENUM_LOGOUT", "number": 2 },
+						{
+							"name": "LID_CLOSE_ACTION_ENUM_SHUTDOWN",
+							"number": 3
+						},
+						{
+							"name": "LID_CLOSE_ACTION_ENUM_DO_NOTHING",
+							"number": 4
 						}
 					]
 				},
 				{
-					"name": "KeyboardSelections",
-					"field": [
+					"name": "IdleActionAcEnum",
+					"value": [
+						{ "name": "IDLE_ACTION_AC_ENUM_SLEEP", "number": 1 },
+						{ "name": "IDLE_ACTION_AC_ENUM_LOGOUT", "number": 2 },
+						{ "name": "IDLE_ACTION_AC_ENUM_SHUTDOWN", "number": 3 },
 						{
-							"name": "keyboardIds",
-							"number": 1,
-							"label": "LABEL_REPEATED",
-							"type": "TYPE_STRING"
+							"name": "IDLE_ACTION_AC_ENUM_DO_NOTHING",
+							"number": 4
 						}
+					]
+				},
+				{
+					"name": "IdleActionBatteryEnum",
+					"value": [
+						{
+							"name": "IDLE_ACTION_BATTERY_ENUM_SLEEP",
+							"number": 1
+						},
+						{
+							"name": "IDLE_ACTION_BATTERY_ENUM_LOGOUT",
+							"number": 2
+						},
+						{
+							"name": "IDLE_ACTION_BATTERY_ENUM_SHUTDOWN",
+							"number": 3
+						},
+						{
+							"name": "IDLE_ACTION_BATTERY_ENUM_DO_NOTHING",
+							"number": 4
+						}
+					]
+				},
+				{
+					"name": "NullableBoolean",
+					"value": [
+						{ "name": "UNSET", "number": 1 },
+						{ "name": "FALSE", "number": 2 },
+						{ "name": "TRUE", "number": 3 }
 					]
 				}
 			]
 		},
 		"fieldDescriptions": [
 			{
-				"field": "loginScreenKeyboardSelections",
-				"description": "Controls which keyboards are available for ChromeOS devices when trying to sign in.",
+				"field": "lidCloseAction",
+				"description": "Action on lid close. Selects the action the device should take when the lid is closed.",
+				"knownValueDescriptions": [
+					{
+						"value": "LID_CLOSE_ACTION_ENUM_SLEEP",
+						"description": "Sleep."
+					},
+					{
+						"value": "LID_CLOSE_ACTION_ENUM_LOGOUT",
+						"description": "Logout."
+					},
+					{
+						"value": "LID_CLOSE_ACTION_ENUM_SHUTDOWN",
+						"description": "Shutdown."
+					},
+					{
+						"value": "LID_CLOSE_ACTION_ENUM_DO_NOTHING",
+						"description": "Do nothing."
+					}
+				],
+				"defaultValue": "LID_CLOSE_ACTION_ENUM_LOGOUT",
+				"name": "Action on lid close.",
+				"fieldDescription": "Selects the action the device should take when the lid is closed.",
+				"fieldConstraints": {}
+			},
+			{
+				"field": "idleDelayAc",
+				"description": "AC idle delay in seconds. Enter zero to never take the idle action. Leave empty for system default.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
 				"nestedFieldDescriptions": [
 					{
-						"field": "selections",
-						"description": "Sign in keyboard selections.",
-						"nestedFieldDescriptions": [
-							{
-								"field": "keyboardIds",
-								"description": "The list of ids for the available keyboard types the user can select at the login screen. The keyboards will appear in the same order as this list.",
-								"knownValueDescriptions": [
-									{
-										"value": "xkb:be::fra",
-										"description": "Belgian keyboard [French (France) - \u202aFran\u00e7ais (France)\u202c]."
-									},
-									{
-										"value": "xkb:be::ger",
-										"description": "Belgian keyboard [German (Germany) - \u202aDeutsch (Deutschland)\u202c]."
-									},
-									{
-										"value": "xkb:be::nld",
-										"description": "Belgian keyboard [Dutch - \u202aNederlands\u202c]."
-									},
-									{
-										"value": "xkb:br::por",
-										"description": "Brazilian keyboard."
-									},
-									{
-										"value": "xkb:ca::fra",
-										"description": "Canadian French keyboard."
-									},
-									{
-										"value": "xkb:ca:eng:eng",
-										"description": "Canadian English keyboard."
-									},
-									{
-										"value": "xkb:ca:multix:fra",
-										"description": "Canadian Multilingual keyboard [French (Canada) - \u202aFran\u00e7ais (Canada)\u202c]."
-									},
-									{
-										"value": "xkb:ch::ger",
-										"description": "Swiss keyboard [German (Switzerland) - \u202aDeutsch (Schweiz)\u202c]."
-									},
-									{
-										"value": "xkb:ch:fr:fra",
-										"description": "Swiss keyboard [French (Switzerland) - \u202aFran\u00e7ais (Suisse)\u202c]."
-									},
-									{
-										"value": "xkb:cz::cze",
-										"description": "Czech keyboard."
-									},
-									{
-										"value": "xkb:cz:qwerty:cze",
-										"description": "Czech QWERTY keyboard."
-									},
-									{
-										"value": "xkb:de::ger",
-										"description": "German keyboard."
-									},
-									{
-										"value": "xkb:de:neo:ger",
-										"description": "German NEO 2 keyboard."
-									},
-									{
-										"value": "xkb:dk::dan",
-										"description": "Danish keyboard."
-									},
-									{
-										"value": "xkb:ee::est",
-										"description": "Estonian keyboard."
-									},
-									{
-										"value": "xkb:es::spa",
-										"description": "Spanish keyboard."
-									},
-									{
-										"value": "xkb:es:cat:cat",
-										"description": "Catalan keyboard."
-									},
-									{
-										"value": "xkb:fi::fin",
-										"description": "Finnish keyboard."
-									},
-									{
-										"value": "xkb:fr::fra",
-										"description": "French keyboard."
-									},
-									{
-										"value": "xkb:gb:dvorak:eng",
-										"description": "UK Dvorak keyboard."
-									},
-									{
-										"value": "xkb:gb:extd:eng",
-										"description": "UK keyboard."
-									},
-									{
-										"value": "xkb:hr::scr",
-										"description": "Croatian keyboard."
-									},
-									{
-										"value": "xkb:hu::hun",
-										"description": "Hungarian keyboard."
-									},
-									{
-										"value": "xkb:ie::ga",
-										"description": "Irish keyboard."
-									},
-									{
-										"value": "xkb:in::eng",
-										"description": "Indian English keyboard."
-									},
-									{
-										"value": "xkb:is::ice",
-										"description": "Icelandic keyboard."
-									},
-									{
-										"value": "xkb:it::ita",
-										"description": "Italian keyboard."
-									},
-									{
-										"value": "xkb:jp::jpn",
-										"description": "Japanese keyboard."
-									},
-									{
-										"value": "xkb:latam::spa",
-										"description": "Latin American keyboard."
-									},
-									{
-										"value": "xkb:lt::lit",
-										"description": "Lithuanian keyboard."
-									},
-									{
-										"value": "xkb:lv:apostrophe:lav",
-										"description": "Latvian keyboard."
-									},
-									{
-										"value": "xkb:mt::mlt",
-										"description": "Maltese keyboard."
-									},
-									{
-										"value": "xkb:no::nob",
-										"description": "Norwegian keyboard."
-									},
-									{
-										"value": "xkb:pk::eng",
-										"description": " US keyboard [Pakistani]."
-									},
-									{
-										"value": "xkb:pl::pol",
-										"description": "Polish keyboard."
-									},
-									{
-										"value": "xkb:pt::por",
-										"description": "Portuguese keyboard."
-									},
-									{
-										"value": "xkb:ro::rum",
-										"description": "Romanian keyboard."
-									},
-									{
-										"value": "xkb:ro:std:rum",
-										"description": "Romanian Standard keyboard."
-									},
-									{
-										"value": "xkb:se::swe",
-										"description": "Swedish keyboard."
-									},
-									{
-										"value": "xkb:si::slv",
-										"description": "Slovenian keyboard."
-									},
-									{
-										"value": "xkb:tr::tur",
-										"description": "Turkish keyboard."
-									},
-									{
-										"value": "xkb:us::eng",
-										"description": "US keyboard."
-									},
-									{
-										"value": "xkb:us::fil",
-										"description": "US keyboard [Filipino]."
-									},
-									{
-										"value": "xkb:us::ind",
-										"description": "US keyboard [Indonesian - \u202aIndonesia\u202c]."
-									},
-									{
-										"value": "xkb:us::msa",
-										"description": "US keyboard [Malay - \u202aMelayu\u202c]."
-									},
-									{
-										"value": "xkb:us:altgr-intl:eng",
-										"description": "US Extended keyboard."
-									},
-									{
-										"value": "xkb:us:colemak:eng",
-										"description": "US Colemak keyboard."
-									},
-									{
-										"value": "xkb:us:dvorak:eng",
-										"description": "US Dvorak keyboard."
-									},
-									{
-										"value": "xkb:us:dvp:eng",
-										"description": "US Programmer Dvorak keyboard."
-									},
-									{
-										"value": "xkb:us:intl:eng",
-										"description": "US International keyboard."
-									},
-									{
-										"value": "xkb:us:intl_pc:eng",
-										"description": "US International PC keyboard."
-									},
-									{
-										"value": "xkb:us:intl:nld",
-										"description": "Netherlands keyboard."
-									},
-									{
-										"value": "xkb:us:intl:por",
-										"description": "US International keyboard [Portuguese (Brazil) - \u202aPortugu\u00eas (Brasil)\u202c]."
-									},
-									{
-										"value": "xkb:us:workman-intl:eng",
-										"description": "US Workman International keyboard."
-									},
-									{
-										"value": "xkb:us:workman:eng",
-										"description": "US Workman keyboard."
-									},
-									{
-										"value": "xkb:za:gb:eng",
-										"description": "UK keyboard [South African]."
-									}
-								],
-								"name": "The list of ids for the available keyboard types the user can select at the login screen. The keyboards will appear in the same order as this list.",
-								"fieldConstraints": {}
-							}
-						],
-						"name": "Sign in keyboard selections.",
+						"field": "duration",
+						"description": "Duration.",
 						"fieldConstraints": {}
 					}
 				],
-				"name": "Controls which keyboards are available for ChromeOS devices when trying to sign in.",
+				"name": "AC idle delay in seconds.",
+				"fieldDescription": "Enter zero to never take the idle action. Leave empty for system default.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "idleWarningDelayAc",
+				"description": "AC idle warning delay in seconds. The warning appears only if the idle action is logout or shutdown. Enter zero to never show an idle warning. Leave empty for system default.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
+				"name": "AC idle warning delay in seconds.",
+				"fieldDescription": "The warning appears only if the idle action is logout or shutdown. Enter zero to never show an idle warning. Leave empty for system default.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "idleActionAc",
+				"description": "AC idle action. Selects what action the device should take once it is considered idle when connected to power.",
+				"knownValueDescriptions": [
+					{
+						"value": "IDLE_ACTION_AC_ENUM_SLEEP",
+						"description": "Sleep."
+					},
+					{
+						"value": "IDLE_ACTION_AC_ENUM_LOGOUT",
+						"description": "Logout."
+					},
+					{
+						"value": "IDLE_ACTION_AC_ENUM_SHUTDOWN",
+						"description": "Shut down."
+					},
+					{
+						"value": "IDLE_ACTION_AC_ENUM_DO_NOTHING",
+						"description": "Do nothing."
+					}
+				],
+				"defaultValue": "IDLE_ACTION_AC_ENUM_SLEEP",
+				"name": "AC idle action.",
+				"fieldDescription": "Selects what action the device should take once it is considered idle when connected to power.",
+				"fieldConstraints": {}
+			},
+			{
+				"field": "screenDimDelayAc",
+				"description": "AC screen dim delay in seconds. Enter zero to never dim the screen. Leave empty for system default. Does not affect screen dim on lock screen.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
+				"name": "AC screen dim delay in seconds.",
+				"fieldDescription": "Enter zero to never dim the screen. Leave empty for system default. Does not affect screen dim on lock screen.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "screenOffDelayAc",
+				"description": "AC screen off delay in seconds. Enter zero to never turn off the screen. Leave empty for system default. Does not affect screen off on lock screen.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
+				"name": "AC screen off delay in seconds.",
+				"fieldDescription": "Enter zero to never turn off the screen. Leave empty for system default. Does not affect screen off on lock screen.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "screenLockDelayAc",
+				"description": "AC screen lock delay in seconds. Enter zero to never lock the screen on idle. Leave empty for system default.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
+				"name": "AC screen lock delay in seconds.",
+				"fieldDescription": "Enter zero to never lock the screen on idle. Leave empty for system default.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "idleDelayBattery",
+				"description": "Battery idle delay in seconds. Enter zero to never take the idle action. Other idle delays will be clamped to this one. Leave empty for system default.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
+				"name": "Battery idle delay in seconds.",
+				"fieldDescription": "Enter zero to never take the idle action. Other idle delays will be clamped to this one. Leave empty for system default.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "idleWarningDelayBattery",
+				"description": "Battery idle warning delay in seconds. The warning appears only if the idle action is logout or shutdown. Enter zero to never show an idle warning. Leave empty for system default.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
+				"name": "Battery idle warning delay in seconds.",
+				"fieldDescription": "The warning appears only if the idle action is logout or shutdown. Enter zero to never show an idle warning. Leave empty for system default.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "idleActionBattery",
+				"description": "Battery idle action. Selects what action the device should take once it is considered idle when connected to power.",
+				"knownValueDescriptions": [
+					{
+						"value": "IDLE_ACTION_BATTERY_ENUM_SLEEP",
+						"description": "Sleep."
+					},
+					{
+						"value": "IDLE_ACTION_BATTERY_ENUM_LOGOUT",
+						"description": "Logout."
+					},
+					{
+						"value": "IDLE_ACTION_BATTERY_ENUM_SHUTDOWN",
+						"description": "Shut down."
+					},
+					{
+						"value": "IDLE_ACTION_BATTERY_ENUM_DO_NOTHING",
+						"description": "Do nothing."
+					}
+				],
+				"defaultValue": "IDLE_ACTION_BATTERY_ENUM_SLEEP",
+				"name": "Battery idle action.",
+				"fieldDescription": "Selects what action the device should take once it is considered idle when connected to power.",
+				"fieldConstraints": {}
+			},
+			{
+				"field": "screenDimDelayBattery",
+				"description": "Battery screen dim delay in seconds. Enter zero to never dim the screen. Leave empty for system default. Does not affect screen dim on lock screen.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
+				"name": "Battery screen dim delay in seconds.",
+				"fieldDescription": "Enter zero to never dim the screen. Leave empty for system default. Does not affect screen dim on lock screen.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "screenOffDelayBattery",
+				"description": "Battery screen off delay in seconds. Enter zero to never turn off the screen. Leave empty for system default. Does not affect screen off on lock screen.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
+				"name": "Battery screen off delay in seconds.",
+				"fieldDescription": "Enter zero to never turn off the screen. Leave empty for system default. Does not affect screen off on lock screen.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "screenLockDelayBattery",
+				"description": "Battery screen lock delay in seconds. Enter zero to never lock the screen on idle. Leave empty for system default.",
+				"inputConstraint": "Duration policy field accepts Long integer as input. Duration policy field value has minimum value of 0 (unit in second).",
+				"name": "Battery screen lock delay in seconds.",
+				"fieldDescription": "Enter zero to never lock the screen on idle. Leave empty for system default.",
+				"fieldConstraints": {
+					"numericRangeConstraint": { "minimum": "0" }
+				}
+			},
+			{
+				"field": "lockOnSleepOrLidClose",
+				"description": "Lock screen on sleep or lid close. Before Chrome 106, only sleep will trigger locking. In Chrome 106+, sleep or lid close will trigger locking.",
+				"knownValueDescriptions": [
+					{
+						"value": "UNSET",
+						"description": "Allow user to configure."
+					},
+					{ "value": "TRUE", "description": "Lock screen." },
+					{ "value": "FALSE", "description": "Don't lock screen." }
+				],
+				"defaultValue": "UNSET",
+				"name": "Lock screen on sleep or lid close.",
+				"fieldDescription": "Before Chrome 106, only sleep will trigger locking. In Chrome 106+, sleep or lid close will trigger locking.",
 				"fieldConstraints": {}
 			}
 		],
-		"supportUri": "https://support.google.com/chrome/a/answer/1375678?hl=en#login_screen_input_methods",
-		"schemaName": "chrome.devices.SignInKeyboard",
+		"supportUri": "https://support.google.com/chrome/a/answer/2657289?hl=en#idle_settings_extended",
+		"schemaName": "chrome.devices.managedguest.IdleSettingsExtended",
 		"validTargetResources": ["ORG_UNIT"],
 		"policyApiLifecycle": { "policyApiLifecycleStage": "API_CURRENT" },
-		"categoryTitle": "Sign-in settings",
+		"categoryTitle": "Power and shutdown",
 		"supportedPlatforms": ["CHROME_OS"]
-        }`;
+	}`;
